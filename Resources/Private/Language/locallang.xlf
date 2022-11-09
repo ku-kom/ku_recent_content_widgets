@@ -24,8 +24,14 @@
 			<trans-unit id="widgets.recentContent.badge.visibleInFuture" xml:space="preserve">
 				<source>Visible in future</source>
 			</trans-unit>
+			<trans-unit id="widgets.recentContent.at" xml:space="preserve">
+				<source>at</source>
+			</trans-unit>
 			<trans-unit id="widgets.recentContent.dateFormat" xml:space="preserve">
-				<source>d.m.Y - H:i:s</source>
+				<source>d.m.Y</source>
+			</trans-unit>
+			<trans-unit id="widgets.recentContent.timeFormat" xml:space="preserve">
+				<source>H:i:s</source>
 			</trans-unit>
 			<trans-unit id="widgets.recentContent.contentId" xml:space="preserve">
 				<source>Content element ID:</source>

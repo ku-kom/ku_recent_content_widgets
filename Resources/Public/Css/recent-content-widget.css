@@ -1,3 +1,10 @@
+.ku-recentcontentwidget {
+    display: flex;
+    align-items: center;
+}
+.ku-recentcontentwidget .t3js-icon {
+    margin-right: .5rem;
+}
 .o-recentcontentwidget .o-recentcontentwidget__element {
     margin-top: 2rem;
 }

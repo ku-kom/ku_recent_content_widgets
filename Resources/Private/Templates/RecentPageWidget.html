@@ -1,6 +1,6 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-      data-namespace-typo3-fluid="true">
-<div class="widget-content-title">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="widget-content-title ku-recentcontentwidget">
+    <core:icon identifier="ku-recent-content-widget-icon" size="small" />
     <span>{f:translate(id: configuration.title, default: configuration.title)}</span>
 </div>
 <div class="widget-content-main o-recentcontentwidget">
@@ -8,4 +8,5 @@
         <f:render partial="Page" arguments="{element: element}" />
     </f:for>
 </div>
+
 </html>
