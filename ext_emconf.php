@@ -1,8 +1,8 @@
 <?php
 
 $EM_CONF[$_EXTKEY] = [
-    'title' => 'Recent Content Widget',
-    'description' => 'A widget for the dashboard to display new and recently updated content elements.',
+    'title' => 'KU Recent Content Dashboard Widget',
+    'description' => 'A widget for the dashboard to display new and recently updated content elements and pages.',
     'category' => 'be',
     'author' => 'Epixskill',
     'author_email' => 'typo3@epixskill.de',
