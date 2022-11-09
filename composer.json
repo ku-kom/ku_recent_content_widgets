@@ -1,5 +1,5 @@
 {
-  "name": "university-of-copenhagen/recent-content-widget",
+  "name": "university-of-copenhagen/recent-content-widgets",
   "type": "typo3-cms-extension",
   "description": "A widget for the dashboard to display new and recently updated content elements and pages.",
   "license": "GPL-2.0-or-later",
