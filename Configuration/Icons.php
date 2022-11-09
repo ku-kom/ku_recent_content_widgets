@@ -15,7 +15,7 @@ defined('TYPO3_MODE') || die();
 
 return [
     // icon identifier
-    'ku-widget-content-info-icon' => [
+    'ku-recent-content-widget-icon' => [
         'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
         'source' => 'EXT:recent_content_widget/Resources/Public/Icons/Extension.svg',
     ],

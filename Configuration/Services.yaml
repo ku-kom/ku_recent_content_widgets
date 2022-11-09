@@ -25,7 +25,7 @@ services:
         groupNames: 'systemInfo'
         title: 'LLL:EXT:recent_content_widget/Resources/Private/Language/locallang.xlf:widgets.recentContent.title'
         description: 'LLL:EXT:recent_content_widget/Resources/Private/Language/locallang.xlf:widgets.recentContent.description'
-        iconIdentifier: 'ku-widget-content-info-icon'
+        iconIdentifier: 'ku-recent-content-widget-icon'
         height: 'large'
         width: 'medium'
   
@@ -47,6 +47,6 @@ services:
         groupNames: 'systemInfo'
         title: 'LLL:EXT:recent_content_widget/Resources/Private/Language/locallang.xlf:widgets.recentPage.title'
         description: 'LLL:EXT:recent_content_widget/Resources/Private/Language/locallang.xlf:widgets.recentPage.description'
-        iconIdentifier: 'ku-widget-content-info-icon'
+        iconIdentifier: 'ku-recent-content-widget-icon'
         height: 'large'
         width: 'medium'
