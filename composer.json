@@ -15,9 +15,6 @@
       "email": "typo3@epixskill.de"
     }
   ],
-  "replace": {
-    "typo3-ter/recent-content-widget": "self.version"
-  },
   "autoload": {
     "psr-4": {
       "Epixskill\\RecentContentWidget\\": "Classes/"
