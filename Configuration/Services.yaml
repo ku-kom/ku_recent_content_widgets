@@ -1,0 +1,52 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Epixskill\RecentContentWidget\:
+    resource: '../Classes/*'
+
+  dashboard.views.epixskill.recent_content_widget:
+    class: 'TYPO3\CMS\Fluid\View\StandaloneView'
+    public: true
+    factory: [ 'Epixskill\RecentContentWidget\Views\Factory', 'widgetTemplate' ]
+
+  dashboard.widget.epixskill.recent_content_widget.recentContent:
+    class: 'Epixskill\RecentContentWidget\Widgets\RecentContentWidget'
+    arguments:
+      $view: '@dashboard.views.epixskill.recent_content_widget'
+      $options:
+        limit: 5
+        refreshAvailable: true
+    tags:
+      - name: dashboard.widget
+        identifier: 'recentContent'
+        groupNames: 'systemInfo'
+        title: 'LLL:EXT:recent_content_widget/Resources/Private/Language/locallang.xlf:widgets.recentContent.title'
+        description: 'LLL:EXT:recent_content_widget/Resources/Private/Language/locallang.xlf:widgets.recentContent.description'
+        iconIdentifier: 'ku-widget-content-info-icon'
+        height: 'large'
+        width: 'medium'
+  
+  dashboard.views.epixskill.recent_page_widget:
+    class: 'TYPO3\CMS\Fluid\View\StandaloneView'
+    public: true
+    factory: [ 'Epixskill\RecentContentWidget\Views\Factory', 'widgetTemplate' ]
+
+  dashboard.widget.epixskill.recent_page_widget.recentPage:
+    class: 'Epixskill\RecentContentWidget\Widgets\RecentPageWidget'
+    arguments:
+      $view: '@dashboard.views.epixskill.recent_page_widget'
+      $options:
+        limit: 5
+        refreshAvailable: true
+    tags:
+      - name: dashboard.widget
+        identifier: 'recentPage'
+        groupNames: 'systemInfo'
+        title: 'LLL:EXT:recent_content_widget/Resources/Private/Language/locallang.xlf:widgets.recentPage.title'
+        description: 'LLL:EXT:recent_content_widget/Resources/Private/Language/locallang.xlf:widgets.recentPage.description'
+        iconIdentifier: 'ku-widget-content-info-icon'
+        height: 'large'
+        width: 'medium'

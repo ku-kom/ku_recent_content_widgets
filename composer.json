@@ -1,0 +1,31 @@
+{
+  "name": "epixskill/recent-content-widget",
+  "type": "typo3-cms-extension",
+  "description": "A widget for the dashboard to display new and recently updated content elements and pages.",
+  "license": "GPL-2.0-or-later",
+  "require": {
+    "typo3/cms-backend": "^10.4.19 || ^11.5.0",
+    "typo3/cms-core": "^10.4.19 || ^11.5.0",
+    "typo3/cms-dashboard": "^10.4.19 || ^11.5.0",
+    "typo3/cms-fluid": "^10.4.19 || ^11.5.0"
+  },
+  "authors": [
+    {
+      "name": "Epixskill",
+      "email": "typo3@epixskill.de"
+    }
+  ],
+  "replace": {
+    "typo3-ter/recent-content-widget": "self.version"
+  },
+  "autoload": {
+    "psr-4": {
+      "Epixskill\\RecentContentWidget\\": "Classes/"
+    }
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "recent_content_widget"
+    }
+  }
+}

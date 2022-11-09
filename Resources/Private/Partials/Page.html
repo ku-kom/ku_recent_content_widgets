@@ -1,0 +1,54 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:be="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers" xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="o-recentcontentwidget__element">
+    <f:spaceless>
+        <div>
+            <strong class="c-title">
+                <f:if condition="{element.title}">
+                    <f:then>{element.title}</f:then>
+                    <f:else>
+                        <f:translate key="widgets.recentContent.fallbackTitle" extensionName="recentContentWidget" />
+                    </f:else>
+                </f:if>
+            </strong>
+            <f:if condition="{element.badges.new}">
+                <span class="c-badge c-badge--green">
+                    <f:translate key="widgets.recentContent.badge.new" extensionName="recentContentWidget" />
+                </span>
+            </f:if>
+            <f:if condition="{element.hidden}">
+                <span class="c-badge c-badge--red">
+                    <f:translate key="widgets.recentContent.badge.hidden" extensionName="recentContentWidget" />
+                </span>
+            </f:if>
+            <f:if condition="{element.badges.visibleInFuture}">
+                <span class="c-badge c-badge--yellow">
+                    <f:translate key="widgets.recentContent.badge.visibleInFuture" extensionName="recentContentWidget" />
+                </span>
+            </f:if>
+            <f:if condition="{element.badges.visibleInPast}">
+                <span class="c-badge c-badge--yellow">
+                    <f:translate key="widgets.recentContent.badge.visibleInPast" extensionName="recentContentWidget" />
+                </span>
+            </f:if>
+        </div>
+        <div>
+            <span>
+                <f:translate key="LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.type" />:&nbsp;<f:if condition="{element.doktype}">{element.doktype}</f:if></span>
+            <span> | </span>
+            <span>
+                <f:translate key="widgets.recentContent.pageId" extensionName="recentContentWidget" />&nbsp;{element.uid}</span>
+            <br>
+            <span>
+                <f:translate key="LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.timestamp" />:&nbsp;
+                <f:format.date format="{f:translate(key: 'widgets.recentContent.dateFormat', extensionName: 'recentContentWidget')}" date="{element.tstamp}" /></span>
+        </div>
+        <div class="u-space-top">
+            <f:be.link class="u-dashboard-button dashboard-button" route="web_layout" parameters="{id: element.uid}">
+                <core:icon identifier="actions-document-view" size="small" />&nbsp;
+                <f:translate key="widgets.recentContent.showPageBackend" extensionName="recentContentWidget" />
+            </f:be.link>
+        </div>
+    </f:spaceless>
+</div>
+
+</html>
