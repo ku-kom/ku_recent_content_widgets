@@ -92,7 +92,7 @@ class RecentPageWidget implements WidgetInterface, AdditionalCssInterface
         ];
     }
 
-    protected function getRecentElementsBatch(int $limit = 1000, int $offset = 0): array
+    protected function getRecentPagesBatch(int $limit = 1000, int $offset = 0): array
     {
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('pages')->createQueryBuilder();
         $queryBuilder
@@ -117,7 +117,7 @@ class RecentPageWidget implements WidgetInterface, AdditionalCssInterface
         $batchLimit = 1000;
         $offset = 0;
         do {
-            $results = $this->getRecentElementsBatch($batchLimit, $offset);
+            $results = $this->getRecentPagesBatch($batchLimit, $offset);
             for ($i = 0; $i < count($results); $i++) {
                 if ($GLOBALS['BE_USER']->doesUserHaveAccess($this->pageRepository->getPage($results[$i]['uid']), 16)) {
                     if ($GLOBALS['BE_USER']->recordEditAccessInternals('pages', $results[$i]['uid'])) {
