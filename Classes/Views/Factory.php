@@ -21,8 +21,11 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Fluid\View\StandaloneView;
 
 class Factory
-{
-    public static function widgetTemplate(): StandaloneView
+{   
+    /**
+     * @return string
+     */
+    public static function widgetTemplate()
     {
         $view = GeneralUtility::makeInstance(StandaloneView::class);
         $view->getRenderingContext()->getTemplatePaths()->fillDefaultsByPackageName('recent_content_widget');
