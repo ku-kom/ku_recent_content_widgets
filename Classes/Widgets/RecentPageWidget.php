@@ -69,7 +69,7 @@ class RecentPageWidget implements WidgetInterface, AdditionalCssInterface
         $this->view->assignMultiple([
             'options' => $this->options,
             'configuration' => $this->configuration,
-            'pages' => $this->getRecentContent($this->options['limit']),
+            'pages' => $this->getRecentPages($this->options['limit']),
         ]);
         return $this->view->render();
     }
@@ -111,7 +111,7 @@ class RecentPageWidget implements WidgetInterface, AdditionalCssInterface
         return $result;
     }
 
-    protected function getRecentContent(int $limit): array
+    protected function getRecentPages(int $limit): array
     {
         $elements = [];
         $batchLimit = 1000;
