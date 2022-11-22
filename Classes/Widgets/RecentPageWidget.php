@@ -132,7 +132,8 @@ class RecentPageWidget implements WidgetInterface, AdditionalCssInterface
                     if (time() > $results[$i]['endtime'] && $results[$i]['endtime'] > 0 && $results[$i]['hidden'] === 0) {
                         $results[$i]['badges']['visibleInPast'] = 1;
                     }
-                    $results[$i]['lastmodified'] = $this->getContentElementsFromPage($results[$i]['uid'], $results[$i]['tstamp']);
+                    $results[$i]['lastmodified'] = $this->getContentElementsFromPage($results[$i]['uid']);
+                    
                     if (count($elements) < $limit) {
                         $elements[] = $results[$i];
                     }
@@ -144,7 +145,7 @@ class RecentPageWidget implements WidgetInterface, AdditionalCssInterface
         return $elements;
     }
 
-    protected function getContentElementsFromPage(int $pid, int $pageTimestamp): array
+    protected function getContentElementsFromPage(int $pid): array
     {
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tt_content')->createQueryBuilder();
         $queryBuilder
