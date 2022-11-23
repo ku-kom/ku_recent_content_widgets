@@ -132,8 +132,9 @@ class RecentPageWidget implements WidgetInterface, AdditionalCssInterface
                     if (time() > $results[$i]['endtime'] && $results[$i]['endtime'] > 0 && $results[$i]['hidden'] === 0) {
                         $results[$i]['badges']['visibleInPast'] = 1;
                     }
-                    $results[$i]['lastmodified'] = $this->getContentElementsFromPage($results[$i]['uid']);
-                    
+                    if ($results[$i]['tx_kulastpageupdate_timestamp']) {
+                        $results[$i]['tx_kulastpageupdate_timestamp'];
+                    }
                     if (count($elements) < $limit) {
                         $elements[] = $results[$i];
                     }
@@ -141,32 +142,8 @@ class RecentPageWidget implements WidgetInterface, AdditionalCssInterface
             }
             $offset += $batchLimit;
         } while (count($elements) < $limit && count($results) === $batchLimit);
-        //var_dump($elements);
+        var_dump($elements);
         return $elements;
-    }
-
-    protected function getContentElementsFromPage(int $pid): array
-    {
-        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tt_content')->createQueryBuilder();
-        $queryBuilder
-            ->getRestrictions()
-            ->removeByType(HiddenRestriction::class)
-            ->removeByType(StartTimeRestriction::class)
-            ->removeByType(EndTimeRestriction::class);
-        $result = $queryBuilder
-            ->count('uid')
-            ->select('uid', 'tstamp')
-            ->from('tt_content')
-            ->where($queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter($pid, \PDO::PARAM_INT)))
-            ->orderBy('tstamp', 'DESC')
-            ->executeQuery();
-        $ceTimestamp = [];
-        while ($row = $result->fetchAssociative()) {
-            $tstamp = $row['tstamp'];
-            $ceTimestamp[] = [$tstamp];
-        }
-
-        return $ceTimestamp;
     }
 
     protected function getTypo3MainVersion(): int
