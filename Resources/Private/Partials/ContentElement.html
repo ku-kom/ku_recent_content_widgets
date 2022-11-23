@@ -33,7 +33,7 @@
         </div>
         <div>
             <span>
-                <f:translate key="LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.type" />:&nbsp;<f:if condition="{element.CTypeTranslationKey}">
+                <f:translate key="LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.type" />:<f:if condition="{element.CTypeTranslationKey}">
                     <f:then>
                         <f:translate key="{element.CTypeTranslationString}" />
                     </f:then>
@@ -48,8 +48,7 @@
             <br>
             <span>
                 <f:translate key="LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.timestamp" />:&nbsp;
-                <f:format.date format="{f:translate(key: 'widgets.recentContent.dateFormat', extensionName: 'recentContentWidget')}" date="{element.tstamp}" />&nbsp;
-                <f:translate key="widgets.recentContent.at" extensionName="recentContentWidget" />&nbsp;
+                <f:format.date format="{f:translate(key: 'widgets.recentContent.dateFormat', extensionName: 'recentContentWidget')}" date="{element.tstamp}" />, 
                 <f:format.date format="{f:translate(key: 'widgets.recentContent.timeFormat', extensionName: 'recentContentWidget')}" date="{element.tstamp}" /></span>
         </div>
         <div class="u-space-top">

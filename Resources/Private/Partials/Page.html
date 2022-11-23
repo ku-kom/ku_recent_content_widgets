@@ -33,16 +33,15 @@
         </div>
         <div>
             <span>
-                <f:translate key="LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.type" />:&nbsp;<f:if condition="{element.doktype}">{element.doktype}</f:if></span>
+                <f:translate key="LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.type" />:<f:if condition="{element.doktype}">{element.doktype}</f:if></span>
             <span> | </span>
             <span>
                 <f:translate key="widgets.recentContent.pageId" extensionName="recentContentWidget" />&nbsp;{element.uid}</span>
             <br>
             <span>
                 <f:translate key="LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.timestamp" />:&nbsp;
-                <f:format.date format="{f:translate(key: 'widgets.recentContent.dateFormat', extensionName: 'recentContentWidget')}" date="{element.tstamp}" />&nbsp;
-                <f:translate key="widgets.recentContent.at" extensionName="recentContentWidget" />&nbsp;
-                <f:format.date format="{f:translate(key: 'widgets.recentContent.timeFormat', extensionName: 'recentContentWidget')}" date="{element.tstamp}" /></span>
+                <f:format.date format="{f:translate(key: 'widgets.recentContent.dateFormat', extensionName: 'recentContentWidget')}" date="{element.tx_kulastpageupdate_timestamp}" />, 
+                <f:format.date format="{f:translate(key: 'widgets.recentContent.timeFormat', extensionName: 'recentContentWidget')}" date="{element.tx_kulastpageupdate_timestamp}" /></span>
         </div>
         <div class="u-space-top">
             <f:be.link class="u-dashboard-button dashboard-button" route="web_layout" parameters="{id: element.uid}">

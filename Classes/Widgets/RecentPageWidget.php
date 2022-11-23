@@ -132,8 +132,8 @@ class RecentPageWidget implements WidgetInterface, AdditionalCssInterface
                     if (time() > $results[$i]['endtime'] && $results[$i]['endtime'] > 0 && $results[$i]['hidden'] === 0) {
                         $results[$i]['badges']['visibleInPast'] = 1;
                     }
-                    if ($results[$i]['tx_kulastpageupdate_timestamp']) {
-                        $results[$i]['tx_kulastpageupdate_timestamp'];
+                    if ($results[$i]['tx_kulastpageupdate_timestamp'] === 0) {
+                        $results[$i]['tx_kulastpageupdate_timestamp'] = $results[$i]['tstamp'];
                     }
                     if (count($elements) < $limit) {
                         $elements[] = $results[$i];
@@ -142,7 +142,7 @@ class RecentPageWidget implements WidgetInterface, AdditionalCssInterface
             }
             $offset += $batchLimit;
         } while (count($elements) < $limit && count($results) === $batchLimit);
-        var_dump($elements);
+        
         return $elements;
     }
 
