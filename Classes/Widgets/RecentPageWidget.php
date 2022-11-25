@@ -103,7 +103,7 @@ class RecentPageWidget implements WidgetInterface, AdditionalCssInterface
         $result = $queryBuilder
             ->select('*')
             ->from('pages')
-            ->orderBy('crdate', 'DESC')
+            ->orderBy('ku_lastpageupdates_timestamp', 'DESC')
             ->setMaxResults($limit)
             ->setFirstResult($offset)
             ->execute()
