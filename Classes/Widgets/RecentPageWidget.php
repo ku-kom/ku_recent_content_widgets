@@ -132,8 +132,10 @@ class RecentPageWidget implements WidgetInterface, AdditionalCssInterface
                     if (time() > $results[$i]['endtime'] && $results[$i]['endtime'] > 0 && $results[$i]['hidden'] === 0) {
                         $results[$i]['badges']['visibleInPast'] = 1;
                     }
-                    if ($results[$i]['ku_lastpageupdates_timestamp'] === 0) {
+                    if (empty($results[$i]['ku_lastpageupdates_timestamp']) || $results[$i]['ku_lastpageupdates_timestamp'] === 0) {
                         $results[$i]['ku_lastpageupdates_timestamp'] = $results[$i]['tstamp'];
+                    } else {
+                        $results[$i]['ku_lastpageupdates_timestamp'];
                     }
                     if (count($elements) < $limit) {
                         $elements[] = $results[$i];
