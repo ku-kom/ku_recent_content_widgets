@@ -137,6 +137,12 @@ class RecentPageWidget implements WidgetInterface, AdditionalCssInterface
                     } else {
                         $results[$i]['ku_lastpageupdates_timestamp'];
                     }
+
+                    $results[$i]['doktypeLabel'] = $this->getDoktypeTranslationString((int)$results[$i]['doktype']);
+                    if (substr($results[$i]['doktypeLabel'], 0, 4) === 'LLL:') {
+                        $results[$i]['doktypeLabelIsKey'] = true;
+                    }
+
                     if (count($elements) < $limit) {
                         $elements[] = $results[$i];
                     }
@@ -146,6 +152,17 @@ class RecentPageWidget implements WidgetInterface, AdditionalCssInterface
         } while (count($elements) < $limit && count($results) === $batchLimit);
         
         return $elements;
+    }
+
+    protected function getDoktypeTranslationString(int $key): ?string
+    {
+        foreach ($GLOBALS['TCA']['pages']['columns']['doktype']['config']['items'] as $item) {
+            if ((int)$item[1] === $key) {
+                return $item[0];
+            }
+        }
+
+        return null;
     }
 
     protected function getTypo3MainVersion(): int

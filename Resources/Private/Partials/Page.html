@@ -33,14 +33,22 @@
         </div>
         <div>
             <span>
-                <f:translate key="LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.type" />:<f:if condition="{element.doktype}">{element.doktype}</f:if></span>
+                <f:translate key="LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.type" />: <f:if condition="{element.doktype}">
+                    <f:if condition="{element.doktypeLabelIsKey}">
+                        <f:then>
+                            <f:translate key="{element.doktypeLabel}" />
+                        </f:then>
+                        <f:else>{element.doktypeLabel}</f:else>
+                    </f:if>
+                </f:if>
+            </span>
             <span> | </span>
             <span>
                 <f:translate key="widgets.recentContent.pageId" extensionName="recentContentWidget" />&nbsp;{element.uid}</span>
             <br>
             <span>
                 <f:translate key="LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.timestamp" />:&nbsp;
-                <f:format.date format="{f:translate(key: 'widgets.recentContent.dateFormat', extensionName: 'recentContentWidget')}" date="{element.ku_lastpageupdates_timestamp}" />, 
+                <f:format.date format="{f:translate(key: 'widgets.recentContent.dateFormat', extensionName: 'recentContentWidget')}" date="{element.ku_lastpageupdates_timestamp}" />,
                 <f:format.date format="{f:translate(key: 'widgets.recentContent.timeFormat', extensionName: 'recentContentWidget')}" date="{element.ku_lastpageupdates_timestamp}" /></span>
         </div>
         <div class="u-space-top">
