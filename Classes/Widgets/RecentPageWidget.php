@@ -143,6 +143,10 @@ class RecentPageWidget implements WidgetInterface, AdditionalCssInterface
                         $results[$i]['doktypeLabelIsKey'] = true;
                     }
 
+                    if ($results[$i]['cruser_id']) {
+                        $results[$i]['ku_creator'] = $this->getAuthorRealName($results[$i]['cruser_id']);
+                    }
+
                     if (count($elements) < $limit) {
                         $elements[] = $results[$i];
                     }
@@ -163,6 +167,27 @@ class RecentPageWidget implements WidgetInterface, AdditionalCssInterface
         }
 
         return null;
+    }
+
+    protected function getAuthorRealName(int $authorUid): ?string
+    {
+        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('be_users');
+
+        $result = $queryBuilder
+        ->select('realName')
+        ->from('be_users')
+        ->where($queryBuilder->expr()->eq(
+            'uid',
+            $queryBuilder->createNamedParameter($authorUid, \PDO::PARAM_STR)
+        ))
+        ->execute() // Change to executeQuery() in TYPO3 v.12
+        ->fetch();
+
+        $name = $result['realName'];
+
+        if ($result) {
+            return $name;
+        }
     }
 
     protected function getTypo3MainVersion(): int

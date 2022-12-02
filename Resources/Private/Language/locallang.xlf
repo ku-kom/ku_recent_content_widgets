@@ -48,6 +48,9 @@
 			<trans-unit id="widgets.recentPage.description" xml:space="preserve">
 				<source>Displays a list of recently updated or created pages which you have access to.</source>
 			</trans-unit>
+			<trans-unit id="widgets.recentPage.created_by" xml:space="preserve">
+				<source>Created by</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

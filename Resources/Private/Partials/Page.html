@@ -50,6 +50,12 @@
                 <f:translate key="LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.timestamp" />:&nbsp;
                 <f:format.date format="{f:translate(key: 'widgets.recentContent.dateFormat', extensionName: 'recentContentWidget')}" date="{element.ku_lastpageupdates_timestamp}" />,
                 <f:format.date format="{f:translate(key: 'widgets.recentContent.timeFormat', extensionName: 'recentContentWidget')}" date="{element.ku_lastpageupdates_timestamp}" /></span>
+                <f:if condition="{element.ku_creator}">
+                    <f:then>
+                        <div class="widget_ku_creator">
+                            <f:translate key="widgets.recentPage.created_by" extensionName="recentContentWidget" />: {element.ku_creator} </div>
+                    </f:then> 
+                </f:if>
         </div>
         <div class="u-space-top">
             <f:be.link class="u-dashboard-button dashboard-button" route="web_layout" parameters="{id: element.uid}">
