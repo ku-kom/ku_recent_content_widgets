@@ -11,7 +11,7 @@
   * Icon registry
   */
 
-defined('TYPO3_MODE') || die();
+defined('TYPO3') || die();
 
 return [
     // icon identifier
